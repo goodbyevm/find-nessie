@@ -12,6 +12,7 @@ Layer that contain classes representing the API exposed via the REST client.
 
 ## 2.2 Service
 Layer acting as a glue between the API and model
+
 - `NessieService`
 
 ## 2.3 Model
