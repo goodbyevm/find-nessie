@@ -30,3 +30,8 @@ To assure that the functionality acts as intended, a complete test suit has been
 
 # 4 Miscellaneous
 - Constructor injection is used where suited in order to make classes fully testable.
+
+#5 Further improvements
+
+- LameManager.checkIfLakeExists could be a bit more sophisticated than just throwing an IllegalArgumentException.
+- NessiSimulation.findNessie could get rid of the CheckLake parameter since, according to the specification, the client will always change route according to the fisherman.
