@@ -1,15 +1,19 @@
 package pj.nessie.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 import pj.nessie.service.NessieService;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
 /**
- * Service class which contain methods regarding the simulation which will be exposed to the client via REST.
+ * API class which contain methods which will be exposed to the client via REST.
  */
 
 @RestController
+@RequestMapping("api/v1/nessie")
 public class NessiSimulation {
 
     private final NessieService nessieService;
@@ -19,8 +23,18 @@ public class NessiSimulation {
         nessieService = i_nessieService;
     }
 
-    @RequestMapping("/name")
-    public String getNessieName() {
-        return nessieService.getNameOfNessie();
+    /**
+     * Tries to find nessie given a start lake.
+     * @param i_startLake the lake to start the search in.
+     * @return {@code NessieSearchResponse} containing information about the Nessie search result.
+     */
+    @RequestMapping(value = "find", method = RequestMethod.GET)
+    public NessieSearchResponse findNessie(@RequestParam(value="StartLake") Integer i_startLake, @RequestParam(value="ChangeLake") Boolean i_changeLake ) {
+        return nessieService.findNessie(i_startLake, i_changeLake);
+    }
+
+    @ExceptionHandler({IllegalArgumentException.class, NullPointerException.class})
+    void handleBadRequests(HttpServletResponse response) throws IOException {
+        response.sendError(HttpStatus.BAD_REQUEST.value());
     }
 }
