@@ -6,6 +6,9 @@ package pj.nessie.api;
 
 public class NessieSearchResponse {
 
+    /**
+     * {@code true} if Nessie was found and {@code false} if not.
+     */
     public final boolean foundNessie;
 
     public NessieSearchResponse(Boolean i_foundNessie) {

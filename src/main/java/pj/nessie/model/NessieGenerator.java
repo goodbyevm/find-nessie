@@ -21,13 +21,16 @@ public class NessieGenerator {
     }
 
     /**
-     * Retrieves the location of Nessie.
+     * Retrieves the generated location of Nessie.
      * @return the index of the lake where Nessie is located. The index is returned as an {@code int} inside the boundaries of 0-2
      */
     public int getNessieLocation() {
         return nessieLocation;
     }
 
+    /**
+     * Reset location of Nessie.
+     */
     public void resetNessieLocation() {
         nessieLocation = rand.nextInt(TOT_NBR_OF_LAKES);
     }

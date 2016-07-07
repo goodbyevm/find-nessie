@@ -21,7 +21,6 @@ public class FisherMan {
 
     /**
      * Calculates a new lake advice where Nessie potentially could be located.
-     *
      * @param i_lakeNbr    intended lake to visit
      * @return  number of the lake to visit based.
      */

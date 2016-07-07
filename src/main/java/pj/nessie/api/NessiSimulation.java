@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * API class which contain methods which will be exposed to the client via REST.
+ * API class which contain methods that is exposed to the client via REST.
  */
 
 @RestController
@@ -26,6 +26,7 @@ public class NessiSimulation {
     /**
      * Tries to find nessie given a start lake.
      * @param i_startLake the lake to start the search in.
+     * @param i_changeLake if lake should be changed.
      * @return {@code NessieSearchResponse} containing information about the Nessie search result.
      */
     @RequestMapping(value = "find", method = RequestMethod.GET)
